@@ -45,6 +45,7 @@ static void *const detailDateObservationContext = (void *)&detailDateObservation
 }
 
 - (void)shared_initialisation {
+	_preferredPopoverEdge = NSMaxXEdge;
 	[self setFormatter:[self dateFormatter]];
 }
 
@@ -91,7 +92,7 @@ static void *const detailDateObservationContext = (void *)&detailDateObservation
 	
 	id const value = [self objectValue];
 	[[self detail] setDate:[value isKindOfClass:[NSDate class]] ? value : [NSDate date]];
-	[[self popover] showRelativeToRect:[self bounds] ofView:self preferredEdge:NSMaxXEdge];
+	[[self popover] showRelativeToRect:[self bounds] ofView:self preferredEdge:[self preferredPopoverEdge]];
 	
 	[self setPopoverPresentationInProgress:NO];
 }

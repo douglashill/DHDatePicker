@@ -5,4 +5,6 @@
 
 @interface DHDatePicker : NSTextField
 
+@property (nonatomic) NSRectEdge preferredPopoverEdge;
+
 @end
